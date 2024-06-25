@@ -1,0 +1,90 @@
+package viste;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+
+//GestoreTemplate � una classe che si occuper� di leggere i file HTML in request e restituirli in response
+//e trasformarli in String
+public class GestoreTemplate
+{
+	//Propriet� dell'oggetto che corrisponde al percorso della cartella viste in WebContent
+	private String percorsoCartellaViste;
+	
+	//L'oggetto per essere creato ha bisogno di un percorso che corrisponde al percorso della cartella
+	//viste all'interno del progetto (es: WebContent/viste/). All'interno della cartella saranno salvati
+	//i file HTML
+	public GestoreTemplate(String percorsoCartellaViste)
+	{
+		this.percorsoCartellaViste = percorsoCartellaViste;
+	}
+	
+	/**
+	 *  Il metodo leggiHTML si occupa di recuperare un file dalla cartella viste e ciclarlo riga per riga.
+	 *  Il risultato del ciclo verr� restituito sotto forma di String al programma stesso.
+	 * @param il nome del file html che vogliamo leggere all'interno della cartella viste.
+	 * @return il file letto sotto forma di String.
+	 */
+	public String leggiHTML(String nomeFile)
+	{
+		String ris = "";
+		try
+		{
+			//Il valore del percorso che passiamo a Scanner corrisponde al percorso della cartella viste
+			//al quale di volta in volta concateniamo il nome del file che vogliamo leggere:
+			//es.: WebContent/viste/home.html
+			Scanner file = new Scanner(new File(percorsoCartellaViste+ "/" + nomeFile));
+			while(file.hasNextLine())
+			{
+				ris += file.nextLine();
+			}
+			file.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("404 - File non trovato al percorso: " + percorsoCartellaViste + nomeFile);
+			e.printStackTrace();
+		}
+		return ris;
+	}//Fine di leggiHTML
+	
+	/**
+	 * 	Il metodo graficaLibro riceve come parametro una mappa che corrisponde al record sul DB in forma di mappa.
+	 * 	Il metodo legger� attravero leggiHTML il file templatelibro.html e sostituir� ai [SEGNAPOSTO] nel file html
+	 * 	i valori letti dalla mappa.
+	 * @param mappa
+	 * @return String corrispondente al file con i segnaposto sostituiti dai valori della mappa
+	 */
+	public String graficaLibro(Map<String, String> mappa)
+	{
+		//Leggiamo il file templatelibro.html
+		String ris = leggiHTML("templatelibro.html");
+		//[id] [autore] <b>[titolo]</b>
+		//Ora che abbiamo inserito il template all'interno di ris usiamo un metodo delle String per sostituire 
+		//i segnaposto con i valori che prendiamo dal parametro (la mappa)
+		//Il metodo replace(vecchiovalore,nuovovalore) rimpiazza il vecchiovalore con un nuovovalore. Ovviamente tutti i valori
+		//che vengono usati come rimpiazzo devono essere di tipo STRING perch� replace restituisce una String.
+		ris	=	ris.replace("[id]",mappa.get("id"))
+				.replace("[autore]", mappa.get("autore"))
+				.replace("[titolo]",mappa.get("titolo"));
+		//Ora che abbiamo sostituito i valori presenti nella String con quelli della mappa restituiamo ris in modo che
+		//l'HTML sia aggiornato.
+		return ris;
+	}//Fine di graficaLibro();
+	
+	public String graficaLibri(List<Map<String, String>> mappe)
+	{
+		//Come prima leggiamo il file elencolibri.html nel quale c'� il segnaposto [libri]
+		String ris = leggiHTML("elencolibri.html");
+		//Ora andiamo a rimpiazzare il segnaposto [libri] con le mappe della lista che viene passata come parametro
+		//dopo averle graficate una a una con il metodo graficaLibro()
+		String elencoLibri = "";
+		//Ciclo tutte le mappe del parametro
+		for(Map<String, String> m : mappe)
+			elencoLibri += graficaLibro(m) + "<br>";
+		//elencoLibri diventa una String contenente il risultato del metodo graficaLibro applicato a ogni mappa della lista
+		//Ora rimpiazziamo il segnaposto [libri] con elencoLibri e ritorniamo ris
+		ris = ris.replace("[libri]", elencoLibri);
+//		System.out.println(ris);
+		return ris;
+	}//Fine di graficaLibri()
+}

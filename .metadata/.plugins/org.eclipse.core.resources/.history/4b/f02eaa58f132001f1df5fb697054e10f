@@ -1,0 +1,54 @@
+package dao;
+import java.util.*;
+import util.Database;
+
+public class DAOLibri {
+	public Database db = new Database("libreria","root","");
+	
+	private static DAOLibri instance;
+	
+	private DAOLibri()
+	{
+		
+	}
+	
+	public static DAOLibri getInstance()
+	{
+		if(instance == null)
+			instance = new DAOLibri();
+		return instance;
+	}
+	
+	public List<Map<String,String>> read(String query, String... params)
+	{
+		return db.rows(query, params);
+	}
+	
+	public List<Map<String,String>> leggiTutti()
+	{
+		return read("select * from libri");
+	}
+	
+	public boolean create(Map<String,String> mappa)
+	{
+		String query = "insert into libri (autore, titolo) values (?,?)";
+		return db.update(query, mappa.get("autore"), mappa.get("titolo"));
+	}
+	
+	public boolean delete(int id)
+	{
+		String query = "delete from libri where id = ?";
+		return db.update(query,id + "");
+	}
+	
+	public boolean update(Map<String,String> mappa)
+	{
+		String query = "update libri set autore = ?, titolo = ? where id = ?";
+		return db.update(query, mappa.get("autore"), mappa.get("titolo"), mappa.get("id"));
+	}
+	
+	public Map<String,String> cercaPerId(int id)
+	{
+		return read("select * from libri where id = ?", id + "").get(0);
+	}
+}

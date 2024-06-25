@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Modifica libro</title>
+	</head>
+	<body>
+		<h1>FORM MODIFICA LIBRO</h1>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=home">HOME</a>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=elencolibri">ELENCO</a> <br>
+		<hr>
+		
+		<form action="Index">
+		 	<input type="hidden" name="comando" value="modificalibro">
+		 	<!-- readonly significa che non può essere modificato -->
+		 	<input type="text" name="id" value="[id]" readonly><br>
+		 	<input type="text" name="titolo" value="[titolo]"><br>
+		 	<input type="text" name="autore" value="[autore]"><br>
+		 	<input type="submit" value="AGGIORNA">
+		 </form>
+		
+	</body>
+</html>

@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+/Users/utente/Documents/2024/_dev_mac/corso/java/DynamicWebProject_DAOLibri_Mappe/.metadata/.plugins/org.eclipse.jdt.core
+3060849195.index
+1865797976.index
+2156884975.index
+3272820758.index
+243966623.index
+3405016859.index

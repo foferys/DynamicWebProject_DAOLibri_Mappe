@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Nuovo libro</title>
+	</head>
+	<body>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=elencolibri">ELENCO</a>
+		<a href="./">AGGIUNGI LIBRO</a>
+		
+		<h1>INSERIMENTO DI UN NUOVO LIBRO</h1>
+		<!--	Questa pagina conterrà una FORM ovvero un aggregatore di input con il compito di raccogliere informazioni
+				da passare poi alla Index per l'inserimento nel DB di un nuovo record.
+				
+				input			->	indica l'intera casella che conterrà il valore inserito dall'utente.
+				name="nome"		->	indica il nome della casella input
+				placeholder		->	rappresenta un aiuto per l'utente che in questo modo sa cosa inserire nella casella.
+									Non è obbligatorio placeholder="TITOLO" significa che nell'input appare la scritta TITOLO.
+									NOTA BENE: il placeholder non è il valore dell'input. Il valore è CIO' CHE INSERISCE L'UTENTE
+				type="text"		->	indica che all'interno di quell'input potrà essere contenuto del testo.
+									Altre tipologie di type sono number, password, date...
+				action="Index"	->	indica che una volta cliccato su SALVA i dati associati agli input verranno inviati alla
+									servlet Index. In questo caso nella request viene impostato il valore
+									di "comando" a "nuovolibro" come indicato dall'input "hidden" nascosto.
+				In sintesi, una volta raccolti i dati dall'utente, verranno inviati alla servlet al case "nuovolibro".
+		 -->
+		 <form action="Index">
+		 	<input type="hidden" name="comando" value="nuovolibro">
+		 	
+		 	<input type="text" name="titolo" placeholder="TITOLO"><br>
+		 	<input type="text" name="autore" placeholder="AUTORE"><br>
+			 
+		 	<input type="submit" value="SALVA">
+		 </form>
+		
+	</body>
+</html>

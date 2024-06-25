@@ -1,0 +1,17 @@
+<!--Questo file si occuper� di graficare ogni singolo libro. Il codice che scriviamo � in html quindi non abbiamo bisogno
+di concatenare o roba simile perch� gli spazi verranno letti come tali dal browser. 
+Possiamo mettere in risalto alcuni pezzi della stampa attraverso il tag <b> che sta per "grassetto".
+Esiste anche il tag <u> (underline) oppure <i> (italic, corsivo) e tutti gli altri che determinano la formattazione
+testuale.-->
+
+   <tr>
+     <th scope="row">[id]</th>
+     <td>[autore]</td>
+     <td>[titolo]</td>
+     <!--  [id] [autore] <b>[titolo]</b>-->
+     <td><a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=eliminalibro&id=[id]">ELIMINA</a> </td>
+     <td><a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=formmodificalibro&id=[id]">MODIFICA</a></td>
+
+   </tr>
+
+	

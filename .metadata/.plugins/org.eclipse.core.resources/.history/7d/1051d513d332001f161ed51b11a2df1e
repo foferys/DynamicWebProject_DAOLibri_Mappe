@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Modifica libro</title>
+	</head>
+	<body>
+		<h1>FORM MODIFICA LIBRO</h1>
+		<form action="Index?comando=elencolibri">
+		 	<input type="hidden" name="comando" value="modificalibro">
+		 	<!-- readonly significa che non può essere modificato -->
+		 	<input type="text" name="id" value="[id]" readonly><br>
+		 	<input type="text" name="titolo" value="[titolo]"><br>
+		 	<input type="text" name="autore" value="[autore]"><br>
+		 	<input type="submit" value="AGGIORNA">
+		 </form>
+		
+	</body>
+</html>

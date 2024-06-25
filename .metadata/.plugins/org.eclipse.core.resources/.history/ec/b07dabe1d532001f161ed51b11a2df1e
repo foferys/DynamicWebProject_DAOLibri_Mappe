@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Elenco libri</title>
+	</head>
+	<body>
+		<h1>Elenco dei libri</h1>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=home">HOME</a>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=formnuovolibro">AGGIUNGI LIBRO</a>
+		<br><hr><br>
+		
+		[libri]
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!--	Questo è un commento in HTML
+		HTML è un linguaggio di markup che serve a definire la struttura di una pagina web.
+		Inizialmente stile e logica erano accorpati all'interno dell'HTML ma oggi vengono divisi
+		in CSS (Cascade Style Sheet) e ad esempio JS (Javascript).
+		L'unico vero linguaggio di programmazione è JS mentre HTML e CSS definiscono l'apparenza.
+		
+		All'interno dell'HTML ci sono dei tag ovvero dei contenitori che definiscono elementi:
+		body, head, html stesso.
+		I tag servono al browser per interpretare gli elementi a seconda dello stile che riportano.
+		Un <h1> ad esempio indica un main-title. Un <h2> un subtitle e via dicendo.
+		Tutti i browser conoscono l'html ma non tutti lo interpretano allo stesso modo (es: button).
+		
+		Le pagine HTML hanno una struttura ad albero.
+		Partono da un tag radice (root) che è appunto html e si ramificano con head, body e via dicendo.
+		Ovviamente esiste una parentela tra i vari tag.
+		HTML è il contenitore degli altri elementi.
+		Head e Body sono figli di HTML e fratelli tra loro.
+		Title è figlio di head che è figlio di html. Pertanto title è nipote di html e di body.
+		Questo aspetto diventa importante quando si parla di navigazione del DOM dove per dom si intende
+		l'intero DOcuMent ovvero la pagina web.
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--	meta indica un metadato. In questo caso la codifica caratteri della pagina. UTF-8 è 
+				la codifica occidentale.
+				Title indica il titolo della pagina che vedremo comparire nella "label" sulla barra
+				di navigazione del browser.
+				Tutte le informazioni inserite in head non vengono stampate ma sono utili ai motori di
+				ricerca per l'indicizzazione.
+		 -->
+		<meta charset="UTF-8">
+		<title>Home</title>
+	</head>
+	<body>
+		<!--	Quello che troviamo nel body invece viene stampato a video. -->
+		<h1>LIBRERIA</h1>
+		<h2>BENVENUTO NELL SITO DELLA LIBRERIA</h2>
+		<!-- 	Il tag "a" indica un collegamento ipertestuale (link). L'attributo "href" indica
+				la pagina alla quale ci si vuole collegare attraverso il (click del) link.
+				Un altro attributo potrebbe essere BLANK che indica il collegamento in una nuova scheda.
+				Di default il link collega sulla stessa scheda di navigazione (non apre una nuova finestra
+				del browser).
+		 -->
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=elencolibri">ELENCO</a>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=home">elenco libri</a>
+		<a href="http://localhost:8080/DynamicWebProject_DAOLibri_Mappe/Index?comando=formnuovolibro">AGGIUNGI LIBRO</a>
+		<br>
+	</body>
+</html>
