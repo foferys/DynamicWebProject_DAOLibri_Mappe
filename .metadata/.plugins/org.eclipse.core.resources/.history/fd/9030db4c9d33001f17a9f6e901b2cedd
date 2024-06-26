@@ -9,17 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import dao.Config;
 import dao.DAOLibri;
 
-//questa struttura con lo switch per la servlet è definito FRONT CONTROLLER (soluzione generica a un proglema ricorrente)
-
-
 @WebServlet("/Index")
-public class Index extends HttpServlet {
-	
-	
+public class Index extends HttpServlet
+{
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
 		response.setContentType("text/html");
 		//all'interno dell'url tramite il parametro request qua nella firma del metodo, cerchiamo il parametro comando
 		String comando = request.getParameter("comando");
@@ -96,7 +92,8 @@ public class Index extends HttpServlet {
 				//la pagina web per la modifica dei dati del libro lato utente.
 				break;
 			case "modificalibro"	:
-				//http://localhost:8080/MappeSqlDynamic/Index?comando=modificalibro&id=7&titolo=Sandman+collection&autore=Gaiman&genere=Graphic+novel&prezzo=56&qta=3
+				//http://localhost:8080/MappeSqlDynamic/Index?comando=modificalibro
+				//&id=7&titolo=Sandman+collection&autore=Gaiman&genere=Graphic+novel&prezzo=56&qta=3
 				//Come per nuovolibro recuperiamo i valori dalla request e li assegno alla mappa che passer�
 				//come parametro al metodo update. DEVO RICORDARMI DI PASSARE ANCHE L'ID.
 				Map<String,String> modificaLibro = new HashMap<String,String>();
@@ -114,19 +111,7 @@ public class Index extends HttpServlet {
 				ris = Config.GT.leggiHTML("filenotfound.html");
 				break;
 		}
-		//	System.out.println(ris);
+//		System.out.println(ris);
 		response.getWriter().append(ris);
 	}//Fine di doGet()
-	
-	
-	//metodo per gestire le richieste POST in modo che non siano visibili nell'url ecc
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-	
-	
-	
-	
 }
-

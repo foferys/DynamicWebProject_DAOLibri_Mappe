@@ -24,7 +24,7 @@
 									di "comando" a "nuovolibro" come indicato dall'input "hidden" nascosto.
 				In sintesi, una volta raccolti i dati dall'utente, verranno inviati alla servlet al case "nuovolibro".
 		 -->
-		 <form action="Index" method="post">
+		 <form action="Index">
 		 	<input type="hidden" name="comando" value="nuovolibro">
 		 	
 		 	<input type="text" name="titolo" placeholder="TITOLO"><br>

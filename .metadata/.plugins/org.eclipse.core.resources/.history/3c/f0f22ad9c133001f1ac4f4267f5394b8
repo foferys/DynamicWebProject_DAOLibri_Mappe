@@ -114,12 +114,12 @@ public class Index extends HttpServlet {
 				ris = Config.GT.leggiHTML("filenotfound.html");
 				break;
 		}
-		//	System.out.println(ris);
+//		System.out.println(ris);
 		response.getWriter().append(ris);
 	}//Fine di doGet()
 	
 	
-	//metodo per gestire le richieste POST in modo che non siano visibili nell'url ecc
+//	metodo per gestire le richieste POST in modo che non siano visibili nell'url ecc
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

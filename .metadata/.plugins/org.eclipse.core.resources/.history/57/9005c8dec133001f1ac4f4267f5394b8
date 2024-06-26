@@ -114,7 +114,7 @@ public class Index extends HttpServlet {
 				ris = Config.GT.leggiHTML("filenotfound.html");
 				break;
 		}
-		//	System.out.println(ris);
+//		System.out.println(ris);
 		response.getWriter().append(ris);
 	}//Fine di doGet()
 	
